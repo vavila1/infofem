@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Buzon;
+use Illuminate\Support\Facades\Validator;
 
 class BuzonController extends Controller
 {
@@ -45,11 +46,28 @@ class BuzonController extends Controller
     {
         //
         $data = $request->all();
-        $response = Buzon::guardarHistoria($data);
-        if($response == true){
-            return redirect('/buzon_index/1')->with('check','¡Se ha registrado tu historia con éxito!');
+        $datos = $request->all();
+        $validator = Validator::make($data, 
+            //rules
+            [
+                'titulo' => 'required',
+                'text' => 'required',
+            ],
+            //messages
+            [
+                'titulo.required' => 'Debes introducir un título',
+                'text.required' => 'El texto no puede quedar vacio',
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect("/buzon/create")->withErrors($validator);
         }else{
-            return redirect('/buzon_index/1')->with('error','¡Ha ocurrido un error. Inténtalo más tarde!');
+            $response = Buzon::guardarHistoria($data);
+            if($response == true){
+                return redirect('/buzon_index/1')->with('check','¡Se ha registrado tu historia con éxito!');
+            }else{
+                return redirect('/buzon_index/1')->with('error','¡Ha ocurrido un error. Inténtalo más tarde!');
+            }
         }
     }
 

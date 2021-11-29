@@ -77,6 +77,13 @@
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
+      <div class="container">
+        @if ($errors->any())
+              @foreach ($errors->all() as $error)
+                  <p style="color:rgb(187, 9, 9)">*{{ $error }}</p>
+              @endforeach    
+      @endif
+      </div>
       <form method="POST" action="{{route('buzon.store')}}">
         @csrf
       <div class="container" data-aos="fade-up">

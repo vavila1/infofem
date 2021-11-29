@@ -93,8 +93,8 @@
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Jane Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$historia['fecha']}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Jane Doe</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">{{$historia['fecha']}}</a></li>
                 </ul>
               </div>
 

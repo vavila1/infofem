@@ -101,13 +101,13 @@
             @foreach($historias as $historia)
             <article class="entry">
               <h2 class="entry-title">
-                <a href="blog-single.html">{{$historia['titulo']}}</a>
+                <a href="{{route('buzon.show',$historia['id'])}}">{{$historia['titulo']}}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Jane Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$historia['fecha']}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i>Jane Doe</li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <time datetime="2020-01-01">{{$historia['fecha']}}</time></li>
                 </ul>
               </div>
 
