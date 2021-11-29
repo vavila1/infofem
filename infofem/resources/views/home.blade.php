@@ -51,7 +51,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#about">Acerca</a></li>
           <li><a class="nav-link scrollto" href="#services">Objetivos</a></li>
-          <li><a href="{{route('buzon.index')}}">Buzón</a></li>
+          <li><a href="{{route('buzon.index',1)}}">Buzón</a></li>
           <li><a href="">Instituciones</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -231,7 +231,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Objetivos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{route('buzon.index')}}">Buzón</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('buzon.index',1)}}">Buzón</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Instituciones</a></li>
             </ul>
           </div>

@@ -14,6 +14,12 @@ class Buzon extends Migration
     public function up()
     {
         //
+        Schema::create('buzon', function (Blueprint $table) {
+            $table->id();
+            $table->string('titulo',100);
+            $table->text('texto');
+            $table->timestamps();
+        });
     }
 
     /**

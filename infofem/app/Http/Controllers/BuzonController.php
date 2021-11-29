@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Buzon;
 
 class BuzonController extends Controller
 {
@@ -11,10 +12,16 @@ class BuzonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($indice)
     {
         //
-        return view('buzon');
+        $historias = Buzon::mostrarHistorias($indice);
+        $total = Buzon::contarHistorias();
+        return view('buzon',[
+            'historias' => $historias,
+            'total' => $total,
+            'indice'=>$indice,
+        ]);
     }
 
     /**
@@ -25,6 +32,7 @@ class BuzonController extends Controller
     public function create()
     {
         //
+        return view('form');
     }
 
     /**
@@ -36,6 +44,13 @@ class BuzonController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $response = Buzon::guardarHistoria($data);
+        if($response == true){
+            return redirect('/buzon_index/1')->with('check','¡Se ha registrado tu historia con éxito!');
+        }else{
+            return redirect('/buzon_index/1')->with('error','¡Ha ocurrido un error. Inténtalo más tarde!');
+        }
     }
 
     /**
@@ -47,6 +62,14 @@ class BuzonController extends Controller
     public function show($id)
     {
         //
+        $historia = Buzon::mostrarHistoria($id);
+        if($historia!=null){
+            return view('historia',[
+                'historia'=>$historia,
+            ]);
+        }else{
+            return redirect('/buzon');
+        }
     }
 
     /**

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Infofem | Buzón</title>
+  <title>Blog Single - Tempo Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -41,7 +41,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Infofem</a></h1>
+      <h1 class="logo"><a href="index.html">Tempo</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -67,81 +67,53 @@
 
         <ol>
           <li><a href="{{route('home')}}">Inicio</a></li>
-          <li>Buzón</li>
+          <li><a href="{{route('buzon.index',1)}}">Buzón</a></li>
+          <li>Titulo</li>
         </ol>
-        <h2>Buzón</h2>
+        <h2>Titulo</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Blog Section ======= -->
+    <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
-      <div class="container">
-        @if(session('check'))
-        <div class="alert alert-success" role="alert">
-          {{session('check')}}
-        </div>
-        @elseif(session('error'))
-        <div class="alert alert-danger" role="alert">
-          {{session('error')}}
-        </div>
-        @endif
-        <div class="row">
-          <div class="col-10"></div>
-          <div class="col-2">
-            <a href="{{route('buzon.create')}}" class="btn-personal"data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar Historia"><i class="bi-journal-plus" style="font-size: 3rem;"></i></a>
-          </div>
-        </div>
-      </div>
       <div class="container" data-aos="fade-up">
+
         <div class="row">
 
           <div class="col-lg-8 entries">
-            @if(!empty($historias))
-            @foreach($historias as $historia)
-            <article class="entry">
+
+            <article class="entry entry-single">
+
+              
+
               <h2 class="entry-title">
-                <a href="blog-single.html">{{$historia['titulo']}}</a>
+                {{$historia['titulo']}}
               </h2>
 
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Jane Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$historia['fecha']}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$historia['fecha']}}</a></li>
                 </ul>
               </div>
 
               <div class="entry-content">
-                <div class="read-more">
-                  <a href="{{route('buzon.show',$historia['id'])}}">Leer</a>
-                </div>
+                <p>
+                  {{$historia['texto']}}
+                </p>
               </div>
-            </article><!-- End blog entry -->
-            @endforeach
-            @else
-              <h1>No hay historias publicadas</h1>
-            @endif
 
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                @for($i=1;$i<=$total;$i++)
-                @if($i==$indice)
-                <li class="active"><a href="{{route('buzon.index',$i)}}">{{$i}}</a></li>
-                @else
-                <li><a href="{{route('buzon.index',$i)}}">{{$i}}</a></li>
-                @endif
-                @endfor
-              </ul>
-            </div>
+              
+
+            </article><!-- End blog entry -->
 
           </div><!-- End blog entries list -->
-
-         
 
         </div>
 
       </div>
-    </section><!-- End Blog Section -->
+    </section><!-- End Blog Single Section -->
 
   </main><!-- End #main -->
 

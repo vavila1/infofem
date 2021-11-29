@@ -17,4 +17,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::resource('/buzon',BuzonController::class);
+Route::resource('/buzon',BuzonController::class)->except([
+	'index'
+]);
+Route::get('/buzon_index/{indice}',[BuzonController::class,'index'])->name('buzon.index');

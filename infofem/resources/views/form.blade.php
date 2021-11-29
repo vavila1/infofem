@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Infofem | Buzón</title>
+  <title>Blog - Tempo Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -41,7 +41,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Infofem</a></h1>
+      <h1 class="logo"><a href="index.html">Tempo</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -67,82 +67,30 @@
 
         <ol>
           <li><a href="{{route('home')}}">Inicio</a></li>
-          <li>Buzón</li>
+          <li><a href="{{route('buzon.index',1)}}">Buzón</a></li>
+          <li>Agregar Historia</li>
         </ol>
-        <h2>Buzón</h2>
+        <h2>Cuenta tu historia</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
-      <div class="container">
-        @if(session('check'))
-        <div class="alert alert-success" role="alert">
-          {{session('check')}}
-        </div>
-        @elseif(session('error'))
-        <div class="alert alert-danger" role="alert">
-          {{session('error')}}
-        </div>
-        @endif
-        <div class="row">
-          <div class="col-10"></div>
-          <div class="col-2">
-            <a href="{{route('buzon.create')}}" class="btn-personal"data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar Historia"><i class="bi-journal-plus" style="font-size: 3rem;"></i></a>
-          </div>
-        </div>
-      </div>
+      <form method="POST" action="{{route('buzon.store')}}">
+        @csrf
       <div class="container" data-aos="fade-up">
-        <div class="row">
-
-          <div class="col-lg-8 entries">
-            @if(!empty($historias))
-            @foreach($historias as $historia)
-            <article class="entry">
-              <h2 class="entry-title">
-                <a href="blog-single.html">{{$historia['titulo']}}</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Jane Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$historia['fecha']}}</time></a></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <div class="read-more">
-                  <a href="{{route('buzon.show',$historia['id'])}}">Leer</a>
-                </div>
-              </div>
-            </article><!-- End blog entry -->
-            @endforeach
-            @else
-              <h1>No hay historias publicadas</h1>
-            @endif
-
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                @for($i=1;$i<=$total;$i++)
-                @if($i==$indice)
-                <li class="active"><a href="{{route('buzon.index',$i)}}">{{$i}}</a></li>
-                @else
-                <li><a href="{{route('buzon.index',$i)}}">{{$i}}</a></li>
-                @endif
-                @endfor
-              </ul>
-            </div>
-
-          </div><!-- End blog entries list -->
-
-         
-
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" class="form-control" id="correo" placeholder="Escribe el titulo que desees" name="titulo" required>
         </div>
-
-      </div>
-    </section><!-- End Blog Section -->
-
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Escribe tu historia</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="texto"></textarea required>
+        </div>
+        <button class="btn-personal" type="submit">Enviar</button>
+    </form>
+    </section>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -152,23 +100,45 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-6 col-md-6 footer-contact">
-            <h3>Infofem</h3>
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Tempo</h3>
             <p>
-              Santiago de Querétaro, Querétaro, México<br>
-              <strong>Email: </strong><a href="mailto:infofem@gmail.com">infofem@gmail.com</a><br>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
             </p>
           </div>
 
-          <div class="col-lg-6 col-md-6 footer-links">
-            <h4>Menú</h4>
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Objetivos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{route('buzon.index',1)}}">Buzón</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Instituciones</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
           </div>
 
         </div>
@@ -179,18 +149,22 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Pinkware</span></strong>. Todos los derechos reservados
+          &copy; Copyright <strong><span>Tempo</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
-          Diseñado por <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="https://instagram.com/infofemm/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
