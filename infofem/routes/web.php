@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuzonController;
+use App\Http\Controllers\InstitucionesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,5 @@ Route::get('/', function () {
 Route::resource('/buzon',BuzonController::class)->except([
 	'index'
 ]);
+Route::resource('/instituciones',InstitucionesController::class);
 Route::get('/buzon_index/{indice}',[BuzonController::class,'index'])->name('buzon.index');

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Infofem | Buzón</title>
+  <title>Instituciones | Infofem</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,8 +50,8 @@
           <li><a  href="{{route('home')}}">Inicio</a></li>
           <li><a href="/#about">Acerca</a></li>
           <li><a href="/#services">Objetivos</a></li>
-          <li><a class="active" href="{{route('buzon.index',1)}}">Buzón</a></li>
-          <li><a href="{{route('instituciones.index')}}">Instituciones</a></li>
+          <li><a href="{{route('buzon.index',1)}}">Buzón</a></li>
+          <li><a class="active" href="">Instituciones</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -67,84 +67,56 @@
 
         <ol>
           <li><a href="{{route('home')}}">Inicio</a></li>
-          <li>Buzón</li>
+          <li>Instituciones</li>
         </ol>
-        <h2>Buzón</h2>
+        <h2>Instituciones</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Blog Section ======= -->
+    <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
-      <div class="container">
-        @if(session('check'))
-        <div class="alert alert-success" role="alert">
-          {{session('check')}}
-        </div>
-        @elseif(session('error'))
-        <div class="alert alert-danger" role="alert">
-          {{session('error')}}
-        </div>
-        @endif
-        <div class="row">
-          <div class="col-10"></div>
-          <div class="col-2">
-            <a href="{{route('buzon.create')}}" class="btn-personal"data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar Historia"><i class="bi-journal-plus" style="font-size: 3rem;"></i></a>
-          </div>
-        </div>
-      </div>
       <div class="container" data-aos="fade-up">
-        <div class="row">
-
-          <div class="col-lg-8 entries">
-            @if(!empty($historias))
-            @foreach($historias as $historia)
-            <article class="entry">
-              <h2 class="entry-title">
-                <a href="{{route('buzon.show',$historia['id'])}}">{{$historia['titulo']}}</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i>Jane Doe</li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <time datetime="2020-01-01">{{$historia['fecha']}}</time></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <div class="read-more">
-                  <a href="{{route('buzon.show',$historia['id'])}}">Leer</a>
-                </div>
-              </div>
-            </article><!-- End blog entry -->
-            @endforeach
+        <div class="col-12">
+        <table class="table-primary">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Código Postal</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($instituciones as $institucion)
+            <tr>
+            <td class="table-primary"><a href="{{route('instituciones.show',$institucion['id'])}}">{{$institucion['nombre']}}</a></td>
+            <td class="table-primary">{{$institucion['direccion']}}</td>
+            <td class="table-primary">{{$institucion['cp']}}</td>
+            @if(!empty($institucion['telefono']))
+            <td class="table-primary">{{$institucion['telefono']}}</td>
             @else
-              <h1>No hay historias publicadas</h1>
+            <td class="table-primary">No tiene</td>
             @endif
-
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                @for($i=1;$i<=$total;$i++)
-                @if($i==$indice)
-                <li class="active"><a href="{{route('buzon.index',$i)}}">{{$i}}</a></li>
-                @else
-                <li><a href="{{route('buzon.index',$i)}}">{{$i}}</a></li>
-                @endif
-                @endfor
-              </ul>
-            </div>
-
-          </div><!-- End blog entries list -->
-
-         
-
-        </div>
-
+            @if(!empty($institucion['correo']))
+            <td class="table-primary">{{$institucion['correo']}}</td>
+            @else
+            <td class="table-primary">No tiene</td>
+            @endif
+            <td class="table-primary">{{$institucion['estado']}}</td>
+          </tr>
+          @endforeach
+          </tbody>
+        </table>
       </div>
-    </section><!-- End Blog Section -->
+      </div>
+    </section><!-- End Blog Single Section -->
 
   </main><!-- End #main -->
 
+  <!-- ======= Footer ======= -->
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
