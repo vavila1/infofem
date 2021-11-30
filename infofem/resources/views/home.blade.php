@@ -52,7 +52,7 @@
           <li><a class="nav-link scrollto" href="#about">Acerca</a></li>
           <li><a class="nav-link scrollto" href="#services">Objetivos</a></li>
           <li><a href="{{route('buzon.index',1)}}">Buzón</a></li>
-          <li><a href="">Instituciones</a></li>
+          <li><a href="{{route('instituciones.index')}}">Instituciones</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -88,13 +88,13 @@
             </p>
             <p>Si tienes algún problema y no sabes a quién acudir, checa nuestra sección de <strong>INSTITUCIONES</strong> donde encontrarás datos de contacto así como la dirección correspondiente de las instituciones que están listas para apoyarte</p>
             <p>Si no encuentras alguna institución en tu estado todavía, estamos trabajando muy duro para ofrecer la información actualizada</p>
-            <a href="#" class="btn-learn-more">Lista instituciones</a>
+            <a href="{{route('instituciones.index')}}" class="btn-learn-more">Lista instituciones</a>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
               Queremos escucharte y que te escuchen. Si tienes alguna historia que contar, tenemos un espacio abierto en el buzón para que la publiques.
             </p>
-            <a href="#" class="btn-learn-more">Echar un vistazo al buzón</a>
+            <a href="{{route('buzon.index',1)}}" class="btn-learn-more">Echar un vistazo al buzón</a>
           </div>
         </div>
 
@@ -232,7 +232,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Objetivos</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('buzon.index',1)}}">Buzón</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Instituciones</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('instituciones.index')}}">Instituciones</a></li>
             </ul>
           </div>
 

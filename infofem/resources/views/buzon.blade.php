@@ -41,7 +41,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Infofem</a></h1>
+      <h1 class="logo"><a href="{{route('home')}}">Infofem</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -163,11 +163,11 @@
           <div class="col-lg-6 col-md-6 footer-links">
             <h4>Menú</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Objetivos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('home')}}">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#about">Acerca</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Objetivos</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('buzon.index',1)}}">Buzón</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Instituciones</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('instituciones.index')}}">Instituciones</a></li>
             </ul>
           </div>
 

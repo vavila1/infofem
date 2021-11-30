@@ -51,12 +51,12 @@ class BuzonController extends Controller
             //rules
             [
                 'titulo' => 'required',
-                'text' => 'required',
+                'texto' => 'required',
             ],
             //messages
             [
                 'titulo.required' => 'Debes introducir un título',
-                'text.required' => 'El texto no puede quedar vacio',
+                'texto.required' => 'El texto no puede quedar vacio',
             ]
         );
         if ($validator->fails()) {

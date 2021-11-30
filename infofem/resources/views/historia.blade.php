@@ -47,11 +47,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a  href="{{route('home')}}">Inicio</a></li>
+          <li><a href="{{route('home')}}">Inicio</a></li>
           <li><a href="/#about">Acerca</a></li>
           <li><a href="/#services">Objetivos</a></li>
           <li><a class="active" href="{{route('buzon.index',1)}}">Buzón</a></li>
-          <li><a href="">Instituciones</a></li>
+          <li><a href="{{route('instituciones.index')}}">Instituciones</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -135,11 +135,11 @@
           <div class="col-lg-6 col-md-6 footer-links">
             <h4>Menú</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Objetivos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('home')}}">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#about">Acerca</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Objetivos</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('buzon.index',1)}}">Buzón</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Instituciones</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('instituciones.index')}}">Instituciones</a></li>
             </ul>
           </div>
 
