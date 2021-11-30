@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Blog Single - Tempo Bootstrap Template</title>
+  <title>Infofem | Historia</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -41,7 +41,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Tempo</a></h1>
+      <h1 class="logo"><a href="{{route('home')}}">Infofem</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -68,9 +68,9 @@
         <ol>
           <li><a href="{{route('home')}}">Inicio</a></li>
           <li><a href="{{route('buzon.index',1)}}">Buzón</a></li>
-          <li>Titulo</li>
+          <li>Historia</li>
         </ol>
-        <h2>Titulo</h2>
+        <h2>{{$historia['titulo']}}</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
